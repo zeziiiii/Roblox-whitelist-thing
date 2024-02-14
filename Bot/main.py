@@ -20,7 +20,7 @@ async def kys(key):
         response = await client.get(url, params=params)
     return response.text
 
-@bot.slash_command(description="Generate and send a random key to a user")
+@bot.slash_command(description="Get key")
 async def key(interaction: nextcord.Interaction, user: nextcord.User):
     wow = ''.join(random.choices(string.ascii_letters + string.digits, k=15))
     key = lol(wow)
