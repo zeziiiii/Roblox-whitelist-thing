@@ -9,9 +9,15 @@ if (isset($_GET['key'])) {
     if (in_array($accessKey, $keys)) {
         echo "Working";
     } else {
-        echo "No valid haha";
+        echo "No work";
     }
+} elseif (isset($_GET['keydelete'])) {
+    $keyToDelete = $_GET['keydelete'];
+    $keys = file('keys.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $updatedKeys = array_diff($keys, [$keyToDelete]);
+    file_put_contents('keys.txt', implode("\n", $updatedKeys));
+    echo "Working";
 } else {
-    echo "No valid haha";
+    echo "No work";
 }
 ?>
