@@ -28,4 +28,4 @@ async def key(interaction: nextcord.Interaction, user: nextcord.User):
     await user.send(embed=nextcord.Embed(title="Generated Key", description=f"Here is your key: {key}", color=0x3498db))
     await interaction.response.send_message(f"Sent to {user}", ephemeral=True)
 
-bot.run('MTE5ODM2MjcyODQ3ODI4OTk5Mg.GYE1xp.nakFHgOw3YPx27hd2nLT8kzOcvK6B9v6rndKnE')
+bot.run('botoken')
