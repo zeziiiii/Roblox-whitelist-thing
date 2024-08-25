@@ -7,10 +7,7 @@ import httpx
 
 bot = commands.Bot()
 
-def lol(key):
-    encoded_base64 = base64.b64encode(key.encode()).decode()
-    encoded_base64 = encoded_base64.rstrip('=')
-    return encoded_base64
+
 def remove(user_id):
     with open('keys.txt', 'r') as f:
         lines = f.readlines()
@@ -36,8 +33,7 @@ async def kyss(key):
 
 @bot.slash_command(description="Generate and send a random key to a user")
 async def key(interaction: nextcord.Interaction, user: nextcord.User):
-    wow = ''.join(random.choices(string.ascii_letters + string.digits, k=15))
-    key = lol(wow)
+    key = ''.join(random.choices(string.ascii_letters + string.digits, k=15))
     await kys(key)
     with open('keys.txt', 'a') as f:
         f.write(f"{user.name}/{user.id}={key}\n")
